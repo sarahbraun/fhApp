@@ -22,7 +22,7 @@
                 <h5>Campus</h5>
                 <div class="list-group">
                     <a href="indoornavi.html" class="list-group-item">Indoor Navi</a>
-                    <a href="#" class="list-group-item">Rund um die FH</a>
+                    <a href="rund-um-die-fh.html" class="list-group-item">Rund um die FH</a>
                     <a href="#" class="list-group-item">Mitfahrbörse</a>
                     <a href="mensa.html" class="list-group-item">Mensaplan</a>
                 </div>
@@ -41,7 +41,12 @@
                 <h3>Raum-Suche</h3><br>
                 <select name="endpoint" id="endpoint" onchange="searchEndpoint(this.value)"></select>
             </div>
-            <div class="map" id="mainMap"><img src="img/0eg-plan.svg" alt="eg" class="base"></div>
+            <div class="maps">
+                <div class="map" id="eg0Map"><img src="img/0eg-plan.svg" alt="eg"></div>
+                <div class="map" id="og1Map"><img src="img/1og-plan.svg" alt="1og"></div>
+                <div class="map" id="og2Map"><img src="img/2og-plan.svg" alt="2og"></div>
+                <div id="lift"></div>
+            </div>
             <footer class="footer navbar-default">
                 <a href="dashboard.html"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><br>Kalender</a>
                 <a href="indoornavi.html" class="active"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><br>Indoor Navi</a>
@@ -53,7 +58,7 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript" src="js/astar.js"></script>
-        <script type="text/javascript" src="js/0eg.js"></script>
+        <script type="text/javascript" src="js/stockwerke.js"></script>
         <script type="text/javascript" src="js/map-search.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
@@ -70,20 +75,19 @@
                 for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
                     var rowCells = allRows[singleRow].split(',');
                     table += '<option value="';
+                    table += rowCells[1];
+                    table += ',';
                     table += rowCells[2];
                     table += ',';
                     table += rowCells[3];
                     table += '">';
-                    if($.isNumeric(rowCells[0])) {
-                        table += 'E.HG.';
-                    }
                     table += rowCells[0];
                     if(rowCells[4] != "") {
                         table += ' ';
                         table += rowCells[4];
                     }
                     table += '</option>';
-                } 
+                }
                 $('#endpoint').append(table);
             }
         </script>
