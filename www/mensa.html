@@ -21,7 +21,7 @@
                 <h5>Campus</h5>
                 <div class="list-group">
                     <a href="indoornavi.html" class="list-group-item">Indoor Navi</a>
-                    <a href="#" class="list-group-item">Rund um die FH</a>
+                    <a href="rund-um-die-fh.html" class="list-group-item">Rund um die FH</a>
                     <a href="#" class="list-group-item">Mitfahrbörse</a>
                     <a href="mensa.html" class="list-group-item">Mensaplan</a>
                 </div>
@@ -171,7 +171,7 @@
         <script type="text/javascript">
             google.load("feeds", "1");
             function initialize() {
-                var feed = new google.feeds.Feed("https://rss.imensa.de/aachen/gastro-goethe/speiseplan.rss");
+                var feed = new google.feeds.Feed("https://rss.imensa.de/eisenstadt/mensa-eisenstadt/speiseplan.rss");
                 feed.load(function(result) {
                     if (!result.error) {
                         var container = document.getElementById("mensa-feed");
