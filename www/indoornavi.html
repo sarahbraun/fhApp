@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>FH Burgenland App Mockup</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/map-style.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <nav class="navbar navbar-default">
+                <a href="#" id="show-navigation"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
+                <a href="index.html"><img src="img/FH_Burgenland_Logo.jpg" alt="FH Burgenland Logo" class="logo"></a>
+            </nav>
+            <div id="navigation">
+                <div class="header">
+                    <a href="#" class="back" id="hide-navigation"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+                </div>
+                <h5>Campus</h5>
+                <div class="list-group">
+                    <a href="indoornavi.html" class="list-group-item">Indoor Navi</a>
+                    <a href="#" class="list-group-item">Rund um die FH</a>
+                    <a href="#" class="list-group-item">Mitfahrbörse</a>
+                    <a href="mensa.html" class="list-group-item">Mensaplan</a>
+                </div>
+                <h5>ÖH</h5>
+                <div class="list-group">
+                    <a href="#" class="list-group-item">Info</a>
+                    <a href="#" class="list-group-item">Ansprechpersonen</a>
+                </div>
+                <h5>FH App</h5>
+                <div class="list-group">
+                    <a href="#" class="list-group-item">About</a>
+                    <a href="#" class="list-group-item">Impressum</a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Raum-Suche</h3><br>
+                <select name="endpoint" id="endpoint" onchange="searchEndpoint(this.value)"></select>
+            </div>
+            <div class="map" id="mainMap"><img src="img/0eg-plan.svg" alt="eg" class="base"></div>
+            <footer class="footer navbar-default">
+                <a href="dashboard.html"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><br>Kalender</a>
+                <a href="indoornavi.html" class="active"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><br>Indoor Navi</a>
+                <a href="mensa.html"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span><br>Mensa</a>
+            </footer>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/astar.js"></script>
+        <script type="text/javascript" src="js/0eg.js"></script>
+        <script type="text/javascript" src="js/map-search.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $.ajax({
+                    type: "GET",
+                    url: "raumliste.csv",
+                    dataType: "text",
+                    success: function(data) {processData(data);}
+                });
+            });
+            function processData(data) {
+                var allRows = data.split(/\r?\n|\r/);
+                var table;
+                for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
+                    var rowCells = allRows[singleRow].split(',');
+                    table += '<option value="';
+                    table += rowCells[2];
+                    table += ',';
+                    table += rowCells[3];
+                    table += '">';
+                    if($.isNumeric(rowCells[0])) {
+                        table += 'E.HG.';
+                    }
+                    table += rowCells[0];
+                    if(rowCells[4] != "") {
+                        table += ' ';
+                        table += rowCells[4];
+                    }
+                    table += '</option>';
+                } 
+                $('#endpoint').append(table);
+            }
+        </script>
+    </body>
+</html>

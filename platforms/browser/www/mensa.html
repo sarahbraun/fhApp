@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>FH Burgenland App Mockup</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+    </head>
+    <body>
+        <div class="wrapper" id="mensa">
+            <nav class="navbar navbar-default">
+                <a href="#" id="show-navigation"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
+                <a href="index.html"><img src="img/FH_Burgenland_Logo.jpg" alt="FH Burgenland Logo" class="logo"></a>
+            </nav>
+            <div id="navigation">
+                <div class="header">
+                    <a href="#" class="back" id="hide-navigation"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+                </div>
+                <h5>Campus</h5>
+                <div class="list-group">
+                    <a href="indoornavi.html" class="list-group-item">Indoor Navi</a>
+                    <a href="#" class="list-group-item">Rund um die FH</a>
+                    <a href="#" class="list-group-item">Mitfahrbörse</a>
+                    <a href="mensa.html" class="list-group-item">Mensaplan</a>
+                </div>
+                <h5>ÖH</h5>
+                <div class="list-group">
+                    <a href="#" class="list-group-item">Info</a>
+                    <a href="#" class="list-group-item">Ansprechpersonen</a>
+                </div>
+                <h5>FH App</h5>
+                <div class="list-group">
+                    <a href="#" class="list-group-item">About</a>
+                    <a href="#" class="list-group-item">Impressum</a>
+                </div>
+            </div>
+            <div class="content wide">
+                <h3>Mensamenü</h3>
+                <!-- In das nachstehende Div werden die RSS Beiträge per Javascript eingefügt -->
+                <div id="mensa-feed"></div>
+                <!--<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Montag 17.10.
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <h4>Menü Classic 1 - 4,90 €</h4>
+                                Klare Gemüsesuppe mit Frittaten <i class="small">(A, C, F, G, L)</i><br>Chili con Soja mit einem <i class="small">(A, F, L)</i><br>Kornspitz <i class="small">(A, F, G, P)</i><br>dazu Blattsalat
+                                <h4>Menü Classic 2 - 5,60 €</h4>
+                                Klare Gemüsesuppe mit Frittaten <i class="small">(A, C, F, G, L)</i><br>Putengeschnetzeltes "Züricher Art" <i class="small">(A, F)</i><br>mit Spätzle <i class="small">(A, C, G)</i><br>dazu Blattsalat
+                                <h4>Tagesteller - 4,95 €</h4>
+                                Ofenkartoffel mit Lauch und Speck gefüllt<br>mit Kräuterdip
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Dienstag 18.10.
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <h4>Menü Classic 1 - 4,90 €</h4>
+                                Klare Gemüsesuppe mit Frittaten <i class="small">(A, C, F, G, L)</i><br>Chili con Soja mit einem <i class="small">(A, F, L)</i><br>Kornspitz <i class="small">(A, F, G, P)</i><br>dazu Blattsalat
+                                <h4>Menü Classic 2 - 5,60 €</h4>
+                                Klare Gemüsesuppe mit Frittaten <i class="small">(A, C, F, G, L)</i><br>Putengeschnetzeltes "Züricher Art" <i class="small">(A, F)</i><br>mit Spätzle <i class="small">(A, C, G)</i><br>dazu Blattsalat
+                                <h4>Tagesteller - 4,95 €</h4>
+                                Ofenkartoffel mit Lauch und Speck gefüllt<br>mit Kräuterdip
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Mittwoch 19.10.
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <h4>Menü Classic 1 - 4,90 €</h4>
+                                Klare Gemüsesuppe mit Frittaten <i class="small">(A, C, F, G, L)</i><br>Chili con Soja mit einem <i class="small">(A, F, L)</i><br>Kornspitz <i class="small">(A, F, G, P)</i><br>dazu Blattsalat
+                                <h4>Menü Classic 2 - 5,60 €</h4>
+                                Klare Gemüsesuppe mit Frittaten <i class="small">(A, C, F, G, L)</i><br>Putengeschnetzeltes "Züricher Art" <i class="small">(A, F)</i><br>mit Spätzle <i class="small">(A, C, G)</i><br>dazu Blattsalat
+                                <h4>Tagesteller - 4,95 €</h4>
+                                Ofenkartoffel mit Lauch und Speck gefüllt<br>mit Kräuterdip
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFour">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Donnerstag 20.10.
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                            <div class="panel-body">
+                                <h4>Menü Classic 1 - 4,90 €</h4>
+                                Klare Gemüsesuppe mit Frittaten <i class="small">(A, C, F, G, L)</i><br>Chili con Soja mit einem <i class="small">(A, F, L)</i><br>Kornspitz <i class="small">(A, F, G, P)</i><br>dazu Blattsalat
+                                <h4>Menü Classic 2 - 5,60 €</h4>
+                                Klare Gemüsesuppe mit Frittaten <i class="small">(A, C, F, G, L)</i><br>Putengeschnetzeltes "Züricher Art" <i class="small">(A, F)</i><br>mit Spätzle <i class="small">(A, C, G)</i><br>dazu Blattsalat
+                                <h4>Tagesteller - 4,95 €</h4>
+                                Ofenkartoffel mit Lauch und Speck gefüllt<br>mit Kräuterdip
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFive">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Freitag 21.10.
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                            <div class="panel-body">
+                                <h4>Menü Classic 1 - 4,90 €</h4>
+                                Klare Gemüsesuppe mit Frittaten <i class="small">(A, C, F, G, L)</i><br>Chili con Soja mit einem <i class="small">(A, F, L)</i><br>Kornspitz <i class="small">(A, F, G, P)</i><br>dazu Blattsalat
+                                <h4>Menü Classic 2 - 5,60 €</h4>
+                                Klare Gemüsesuppe mit Frittaten <i class="small">(A, C, F, G, L)</i><br>Putengeschnetzeltes "Züricher Art" <i class="small">(A, F)</i><br>mit Spätzle <i class="small">(A, C, G)</i><br>dazu Blattsalat
+                                <h4>Tagesteller - 4,95 €</h4>
+                                Ofenkartoffel mit Lauch und Speck gefüllt<br>mit Kräuterdip
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingSix">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    Samstag 21.10.
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+                            <div class="panel-body">
+                                <h4>Menü Classic 1 - 4,90 €</h4>
+                                Klare Gemüsesuppe mit Frittaten <i class="small">(A, C, F, G, L)</i><br>Chili con Soja mit einem <i class="small">(A, F, L)</i><br>Kornspitz <i class="small">(A, F, G, P)</i><br>dazu Blattsalat
+                                <h4>Menü Classic 2 - 5,60 €</h4>
+                                Klare Gemüsesuppe mit Frittaten <i class="small">(A, C, F, G, L)</i><br>Putengeschnetzeltes "Züricher Art" <i class="small">(A, F)</i><br>mit Spätzle <i class="small">(A, C, G)</i><br>dazu Blattsalat
+                                <h4>Tagesteller - 4,95 €</h4>
+                                Ofenkartoffel mit Lauch und Speck gefüllt<br>mit Kräuterdip
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                <footer class="footer navbar-default">
+                    <a href="dashboard.html"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><br>Kalender</a>
+                    <a href="indoornavi.html"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><br>Indoor Navi</a>
+                    <a href="mensa.html" class="active"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span><br>Mensa</a>
+                </footer>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load("feeds", "1");
+            function initialize() {
+                var feed = new google.feeds.Feed("https://rss.imensa.de/aachen/gastro-goethe/speiseplan.rss");
+                feed.load(function(result) {
+                    if (!result.error) {
+                        var container = document.getElementById("mensa-feed");
+                        for (var i = 0; i < result.feed.entries.length; i++) {
+                            var entry = result.feed.entries[i];
+                            var div = document.createElement("div");
+                            div.appendChild(document.createTextNode(entry.title));
+                            container.appendChild(div);
+                        }
+                    }
+                });
+            }
+            google.setOnLoadCallback(initialize);
+        </script>
+    </body>
+</html>
