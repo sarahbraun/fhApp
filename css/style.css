@@ -5,7 +5,7 @@
 .navbar .logo {width:55px;float:right;margin:0 5px;}
 
 .footer {position:fixed;bottom:0;width:100%;font-size:0.6em;line-height:1em;text-align:left;padding:0;-webkit-box-shadow:0 -1px 0 rgba(255, 255, 255, 0.15) inset, 0 -1px 5px rgba(0, 0, 0, 0.075);-moz-box-shadow:0 -1px 0 rgba(255, 255, 255, 0.15) inset, 0 -1px 5px rgba(0, 0, 0, 0.075);box-shadow:0 -1px 0 rgba(255, 255, 255, 0.15) inset, 0 -1px 5px rgba(0, 0, 0, 0.075);z-index:100;}
-.footer a {display:inline-block;text-align:center;width:32%;text-decoration:none;padding:5px 0;}
+.footer a {display:block;float:left;text-align:center;width:33.33%;text-decoration:none;padding:5px 0;}
 .footer a .glyphicon {padding:0 0 5px;font-size:1.8em;}
 .footer a.active {background-color:#337ab7;color:#fff;}
 
