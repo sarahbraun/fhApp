@@ -1,3 +1,40 @@
+// Lädt Räume aus der CSV in das Select
+$(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "raumliste.csv",
+        dataType: "text",
+        success: function(data) {processData(data);}
+    });
+});
+function processData(data) {
+    var allRows = data.split(/\r?\n|\r/);
+    var table;
+    for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
+        var rowCells = allRows[singleRow].split(',');
+        table += '<option value="';
+        table += rowCells[1];
+        table += ',';
+        table += rowCells[2];
+        table += ',';
+        table += rowCells[3];
+        table += '">';
+        table += rowCells[0];
+        if(rowCells[4] != "") {
+            table += ' ';
+            table += rowCells[4];
+        }
+        table += '</option>';
+    }
+    $('#endpoint').append(table);
+}
+
+// Übermittelter Wert aus select wird an die function initPath übergeben
+function searchEndpoint(endpoint) {
+    var res = endpoint.split(",");
+    initPath(res[0],res[1],res[2]);
+}
+
 // Die Stockwerke wurden bereits in der index.html eingebunden
 var eg0Map = document.getElementById('eg0Map');
 var og1Map = document.getElementById('og1Map');
@@ -65,12 +102,12 @@ function initPath(st, x, y) {
     
     // Entferne zuvor erstellen Path
     $(".grid-box").removeClass("start").removeClass("end").removeClass("waypoint").removeClass("path");
-    $("#lift").hide();  
+    $("#lift").hide().html("");  
     $("#eg0Map").show();
     $("#og1Map").hide();
     $("#og2Map").hide();
+    var stockwerk = st;
 
-    // astar anwenden
     // Start beim Eingang ACHTUNG: zuerst wird die Zeile angegeben, dann die Spalte!
     var startY = 15;
     var startX = 5;
@@ -80,34 +117,33 @@ function initPath(st, x, y) {
     var liftX = 6;
     
     // ist Endpunkt im EG?
-    if (st == "0"){
-        var start = graph[st].grid[startY][startX];
+    if (stockwerk == "0"){
+        var start = graph[0].grid[startY][startX];
         var end = graph[st].grid[endY][endX];
-        drawPath(st, start, end)
+        drawPath(0, start, end)
     } else {
         // wenn Endpunkt nicht im EG, dann geh bis zum Lift
-        var start = graph[st].grid[startY][startX];
+        var start = graph[0].grid[startY][startX];
         var end = graph[0].grid[liftY][liftX];
         drawPath(0, start, end);
         
-        $("#lift").show().append("Nimm den Lift in den "+st+". Stock!");
+        var start2 = graph[stockwerk].grid[liftY][liftX];
+        var end2 = graph[stockwerk].grid[endY][endX];
         // Klicke auf den Lift-Button, um in das andere Stockwerk zu gelangen
-        $("#lift").on("click touch", function() {
+        $("#lift").show().append("Nimm den Lift in den "+stockwerk+". Stock!").on("click touch", function() {
             $("#eg0Map").hide();
             $("#lift").hide();
-            var start = graph[st].grid[liftY][liftX];
-            var end = graph[st].grid[endY][endX];
-            if (st == "1"){
+            if (stockwerk == "1"){
                 $("#og1Map").show();
-                drawPath(st, start, end)
-            } else if (st == "2"){
+            } else if (stockwerk == "2"){
                 $("#og2Map").show();
-                drawPath(st, start, end)
             }
+            drawPath(stockwerk, start2, end2);
         });
         
     }
     function drawPath(st, start, end) {
+        // astar anwenden
         var result = astar.search(graph[st], start, end);
         // Ergebnisse anzeigen
         window.setTimeout(function() {
@@ -127,17 +163,10 @@ function initPath(st, x, y) {
             }
         }, 100);
         // Startpunkt zeigen:
-        if (st == "0") {
+        if (stockwerk == "0") {
             gridElems[st][startY][startX].classList.add('waypoint', 'start');
         } else {
             gridElems[st][liftY][liftX].classList.add('waypoint', 'start');
         }
     }
 }
-
-// Übermittelter Wert aus select wird an die function initPath übergeben
-function searchEndpoint(endpoint) {
-    var res = endpoint.split(",");
-    initPath(res[0],res[1],res[2]);
-}
-//initGrids();

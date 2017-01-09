@@ -60,36 +60,5 @@
         <script type="text/javascript" src="js/astar.js"></script>
         <script type="text/javascript" src="js/stockwerke.js"></script>
         <script type="text/javascript" src="js/map-search.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $.ajax({
-                    type: "GET",
-                    url: "raumliste.csv",
-                    dataType: "text",
-                    success: function(data) {processData(data);}
-                });
-            });
-            function processData(data) {
-                var allRows = data.split(/\r?\n|\r/);
-                var table;
-                for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
-                    var rowCells = allRows[singleRow].split(',');
-                    table += '<option value="';
-                    table += rowCells[1];
-                    table += ',';
-                    table += rowCells[2];
-                    table += ',';
-                    table += rowCells[3];
-                    table += '">';
-                    table += rowCells[0];
-                    if(rowCells[4] != "") {
-                        table += ' ';
-                        table += rowCells[4];
-                    }
-                    table += '</option>';
-                }
-                $('#endpoint').append(table);
-            }
-        </script>
     </body>
 </html>
