@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/map-style.css">
     </head>
     <body>
         <div class="wrapper">
@@ -38,14 +37,11 @@
                 </div>
             </div>
             <div class="content">
-                <h3>Raum-Suche</h3><br>
-                <select name="endpoint" id="endpoint" onchange="searchEndpoint(this.value)"></select>
-            </div>
-            <div class="maps">
-                <div class="map" id="eg0Map"><img src="img/0eg-plan.svg" alt="eg"></div>
-                <div class="map" id="og1Map"><img src="img/1og-plan.svg" alt="1og"></div>
-                <div class="map" id="og2Map"><img src="img/2og-plan.svg" alt="2og"></div>
-                <div id="lift"></div>
+                <h3>Raum-Suche</h3>
+                <input id="search" name="search" placeholder="Suche" type="text" data-list=".default_list" autocomplete="off">
+                <ul class="vertical default_list" id="raumliste">
+                 
+                </ul>
             </div>
             <footer class="footer navbar-default">
                 <a href="dashboard.html"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><br>Kalender</a>
@@ -53,12 +49,66 @@
                 <a href="mensa.html"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span><br>Mensa</a>
             </footer>
         </div>
-        <script type="text/javascript" src="cordova.js"></script>
+       <!-- <script type="text/javascript" src="cordova.js"></script>-->
         <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/jquery.hideseek.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="js/astar.js"></script>
-        <script type="text/javascript" src="js/stockwerke.js"></script>
-        <script type="text/javascript" src="js/map-search.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                // Lädt Räume aus der CSV
+                $.ajax({
+                    type: "GET",
+                    url: "raumliste.csv",
+                    dataType: "text",
+                    success: function(data) {processData(data);}
+                });
+                // Suchfunktion
+                $('#search').hideseek({
+                    highlight: true,
+                    navigation: true,
+                    headers: '.list-caption'
+                });
+            });
+            // Geladene Räume werden in Listenelemente gepackt
+            function processData(data) {
+                var allRows = data.split(/\r?\n|\r/),
+                    table = "",
+                    caption1 = "",
+                    caption2 = "",
+                    caption3 = "",
+                    caption4 = "";
+                for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
+                    var rowCells = allRows[singleRow].split(',');
+                    if(rowCells[1] == "0" && caption1 == "") {
+                        table += '<li class="list-caption">Erdgeschoß</li>';
+                        caption1 = 'full';
+                    } else if(rowCells[1] == "1" && caption2 == "") {
+                        table += '<li class="list-caption">1. Obergeschoß</li>';
+                        caption2 = 'full';
+                    } else if(rowCells[1] == "2" && caption3 == "") {
+                        table += '<li class="list-caption">2. Obergeschoß</li>';
+                        caption3 = 'full';
+                    } else if(rowCells[1] == "3" && caption4 == "") {
+                        table += '<li class="list-caption">Techlab</li>';
+                        caption4 = 'full';
+                    }
+                    table += '<li><a href="indoornavi-map.html?room=';
+                    table += rowCells[1];
+                    table += ',';
+                    table += rowCells[2];
+                    table += ',';
+                    table += rowCells[3];
+                    table += '">';
+                    table += rowCells[0];
+                    if(rowCells[4] != "") {
+                        table += ' ';
+                        table += rowCells[4];
+                    }
+                    table += '</a></li>';
+                }
+                $('#raumliste').append(table);
+            }
+        </script>
     </body>
 </html>

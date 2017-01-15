@@ -1,45 +1,26 @@
-// Lädt Räume aus der CSV in das Select
 $(document).ready(function() {
-    $.ajax({
-        type: "GET",
-        url: "raumliste.csv",
-        dataType: "text",
-        success: function(data) {processData(data);}
-    });
+    searchEndpoint();
 });
-function processData(data) {
-    var allRows = data.split(/\r?\n|\r/);
-    var table;
-    for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
-        var rowCells = allRows[singleRow].split(',');
-        table += '<option value="';
-        table += rowCells[1];
-        table += ',';
-        table += rowCells[2];
-        table += ',';
-        table += rowCells[3];
-        table += '">';
-        table += rowCells[0];
-        if(rowCells[4] != "") {
-            table += ' ';
-            table += rowCells[4];
-        }
-        table += '</option>';
+// Übermittelter Wert aus URL wird an die function initPath übergeben
+$.urlParam = function(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+       return null;
     }
-    $('#endpoint').append(table);
+    else{
+       return results[1] || 0;
+    }
 }
-
-// Übermittelter Wert aus select wird an die function initPath übergeben
-function searchEndpoint(endpoint) {
-    var res = endpoint.split(",");
+function searchEndpoint() {
+    var res = $.urlParam('room').split(",");
     initPath(res[0],res[1],res[2]);
 }
-
 // Die Stockwerke wurden bereits in der index.html eingebunden
 var eg0Map = document.getElementById('eg0Map');
 var og1Map = document.getElementById('og1Map');
 var og2Map = document.getElementById('og2Map');
-var mainMap = [eg0Map, og1Map, og2Map];
+var tb3Map = document.getElementById('tb3Map');
+var mainMap = [eg0Map, og1Map, og2Map, tb3Map];
 
 var graphEG = new Graph(grid0);
 var rows0 = grid0.length;
@@ -53,10 +34,14 @@ var graph2OG = new Graph(grid2);
 var rows2 = grid2.length;
 var cols2 = grid2[0].length;
 
-var graph = [graphEG, graph1OG, graph2OG];
-var rows = [rows0, rows1, rows2];
-var cols = [cols0, cols1, cols2];
-var grid = [grid0, grid1, grid2];
+var graph3TL = new Graph(grid3);
+var rows3 = grid3.length;
+var cols3 = grid3[0].length;
+
+var graph = [graphEG, graph1OG, graph2OG, graph3TL];
+var rows = [rows0, rows1, rows2, rows3];
+var cols = [cols0, cols1, cols2, cols3];
+var grid = [grid0, grid1, grid2, grid3];
 
 /*
     Speichert die erstellten Elemente, es kann über die gefundenen Koordinaten
@@ -101,11 +86,12 @@ function initPath(st, x, y) {
     'use strict';
     
     // Entferne zuvor erstellen Path
-    $(".grid-box").removeClass("start").removeClass("end").removeClass("waypoint").removeClass("path");
-    $("#lift").hide().html("");  
+    $(".grid-box").removeClass("start end waypoint path");
+    $("#lift").hide().html('<span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>');  
     $("#eg0Map").show();
     $("#og1Map").hide();
     $("#og2Map").hide();
+    $("#tb3Map").hide();
     var stockwerk = st;
 
     // Start beim Eingang ACHTUNG: zuerst wird die Zeile angegeben, dann die Spalte!
@@ -115,14 +101,18 @@ function initPath(st, x, y) {
     var endX = y - 1;
     var liftY = 7;
     var liftX = 6;
+    var HGzuTLY = 0;
+    var HGzuTLX = 1;
+    var startTLY = 23;
+    var startTLX = 23;
     
     // ist Endpunkt im EG?
     if (stockwerk == "0"){
         var start = graph[0].grid[startY][startX];
         var end = graph[st].grid[endY][endX];
         drawPath(0, start, end)
-    } else {
-        // wenn Endpunkt nicht im EG, dann geh bis zum Lift
+    } else if (stockwerk == "1" || stockwerk == "2") {
+        // wenn Endpunkt im 1OG oder 2OG, dann geh bis zum Lift
         var start = graph[0].grid[startY][startX];
         var end = graph[0].grid[liftY][liftX];
         drawPath(0, start, end);
@@ -130,7 +120,7 @@ function initPath(st, x, y) {
         var start2 = graph[stockwerk].grid[liftY][liftX];
         var end2 = graph[stockwerk].grid[endY][endX];
         // Klicke auf den Lift-Button, um in das andere Stockwerk zu gelangen
-        $("#lift").show().append("Nimm den Lift in den "+stockwerk+". Stock!").on("click touch", function() {
+        $("#lift").append("Nimm den Lift in den "+stockwerk+". Stock!").off("click touch").on("click touch", function() {
             $("#eg0Map").hide();
             $("#lift").hide();
             if (stockwerk == "1"){
@@ -140,31 +130,48 @@ function initPath(st, x, y) {
             }
             drawPath(stockwerk, start2, end2);
         });
+    } else if (stockwerk == "3") {
+        // wenn Endpunkt im TL, dann geh nach draußen
+        var start = graph[0].grid[startY][startX];
+        var end = graph[0].grid[HGzuTLY][HGzuTLX];
+        drawPath(0, start, end);
         
-    }
+        var start3 = graph[stockwerk].grid[startTLY][startTLX];
+        var end3 = graph[stockwerk].grid[endY][endX];
+        // Klicke auf den Button, um zum TL zu gelangen
+        $("#lift").append("Gehe zum TechLab!").off("click touch").on("click touch", function() {
+            $("#eg0Map").hide();
+            $("#lift").hide();
+            $("#tb3Map").show();
+            drawPath(stockwerk, start3, end3);
+        });
+    }            
     function drawPath(st, start, end) {
         // astar anwenden
         var result = astar.search(graph[st], start, end);
         // Ergebnisse anzeigen
-        window.setTimeout(function() {
-            for (var i = 0; i < result.length; i++) {
-                (function(ind) {
-                    // jeden Wegpunkt nach 100 millisekunden hinzufügen
-                    setTimeout(function(){
-                        if (ind < result.length -1){
-                            // Style für jeden gefundenen Wegpunkt hinzufügen
-                            gridElems[st][ result[ind].x ][ result[ind].y ].classList.add('waypoint', 'path');
-                        } else {
-                            // Style für Endpunkt hinzufügen
-                            gridElems[st][ result[ind].x ][ result[ind].y ].classList.add('waypoint', 'end');
-                        }       
-                    }, 100 * ind);
-                })(i);
-            }
-        }, 100);
+        for (var i = 0; i < result.length; i++) {
+            (function(ind) {
+                // jeden Wegpunkt nach 100 millisekunden hinzufügen
+                setTimeout(function(){
+                    if (ind < result.length -1){
+                        // Style für jeden gefundenen Wegpunkt hinzufügen
+                        gridElems[st][ result[ind].x ][ result[ind].y ].classList.add('waypoint', 'path');
+                    } else {
+                        // Style für Endpunkt hinzufügen
+                        gridElems[st][ result[ind].x ][ result[ind].y ].classList.add('waypoint', 'end');
+                        if (stockwerk != "0" && st == "0"){
+                            $("#lift").show()
+                        }
+                    }       
+                }, 100 * ind);
+            })(i);
+        }
         // Startpunkt zeigen:
-        if (stockwerk == "0") {
-            gridElems[st][startY][startX].classList.add('waypoint', 'start');
+        if (st == "0") {
+            gridElems[0][startY][startX].classList.add('waypoint', 'start');
+        } else if (st == "3") {
+            gridElems[3][startTLY][startTLX].classList.add('waypoint', 'start');
         } else {
             gridElems[st][liftY][liftX].classList.add('waypoint', 'start');
         }
