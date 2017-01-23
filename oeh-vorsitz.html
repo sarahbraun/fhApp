@@ -6,11 +6,10 @@
         <title>FH Burgenland App</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/map-style.css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
     </head>
     <body>
-        <div class="wrapper">
+        <div class="wrapper" id="rundumdiefh">
             <nav class="navbar navbar-default">
                 <a href="#" id="show-navigation"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
                 <a href="index.html"><img src="img/FH_Burgenland_Logo.jpg" alt="FH Burgenland Logo" class="logo"></a>
@@ -36,30 +35,37 @@
                     <a href="impressum.html" class="list-group-item">Impressum</a>
                 </div>
             </div>
-            <div class="content">
-                <h3>Raum-Suche</h3><br>
+            <div class="content wide">
+                <h3>FH-Studierendenvertretung 2015/2016</h3>
+                <div class="content">
+                  <br><br>  Georg Lewisch (EUM)<br>
+                    ÖH-Funktion: Vorsitzender<br>
+                    <br>
+                    Yannic Sommer (IMK)<br>
+                    ÖH-Funktion: Stv. ÖH-Vorsitzender<br>
+                    <br>
+                    Karl Friedrich (EUM)<br>
+                    ÖH-Funktion: Stv. ÖH-Vorsitzender<br>
+                    <br>
+                    Christian Schiberl (EUM)<br>
+                    ÖH-Funktion: Wirtschaftsreferent<br>
+                    <br>
+                    Cornelia Panozzo (GMF)<br>
+                    ÖH-Funktion: Sozialreferentin<br>
+                    <br>
+                    Florian Kaltenegger (EUM)<br>
+                    ÖH-Funktion: Bildungs- und Politikreferent
+                </div>
+                <footer class="footer navbar-default">
+                    <a href="indoornavi.html"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span><br>Indoornavigation</a>
+                    <a href="rund-um-die-fh.html"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><br>Rund um die FH</a>
+                    <a href="mensa.html"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span><br>Mensa-Speiseplan</a>
+                </footer>
             </div>
-            <div class="maps">
-                <div class="map" id="eg0Map"><img src="img/0eg-plan.svg" alt="eg"></div>
-                <div class="map" id="og1Map"><img src="img/1og-plan.svg" alt="1og"></div>
-                <div class="map" id="og2Map"><img src="img/2og-plan.svg" alt="2og"></div>
-                <div class="map" id="tb3Map"><img src="img/3tl-plan.svg" alt="techlab"></div>
-                <div id="lift"></div>
-            </div>
-            <br><br>
-            <a href="indoornavi.html" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Neue Suche</a>
-            <footer class="footer navbar-default">
-                <a href="indoornavi.html" class="active"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span><br>Indoornavigation</a>
-                <a href="rund-um-die-fh.html"><span class="glyphicon glyphicon glyphicon-map-marker" aria-hidden="true"></span><br>Rund um die FH</a>
-                <a href="mensa.html"><span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span><br>Mensa-Speiseplan</a>
-            </footer>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="js/astar.js"></script>
-        <script type="text/javascript" src="js/stockwerke.js"></script>
-        <script type="text/javascript" src="js/map-search.js"></script>           
     </body>
 </html>
