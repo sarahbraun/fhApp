@@ -1,14 +1,14 @@
-Eingang,0,16,6,
 Mensa,0,15,25,
 E.HG.001,0,12,7,Bibliothek
 E.HG.002,0,12,7,Bibliothek
 E.HG.003,0,12,7,Bibliothek
 E.HG.004,0,4,11,
 E.HG.005,0,4,16,
-E.HG.006,0,4,18,Teek√ºche
+E.HG.006,0,4,18,Teeküche
 E.HG.007,0,2,22,
 E.HG.008,0,4,22,Medien Labor
 E.HG.009,0,7,20,
+E.HG.010,0,7,20,Eye Tracking Labor
 E.HG.012,0,11,20,
 E.HG.013,0,11,20,
 E.HG.014,0,9,20,Erste Hilfe Zimmer
@@ -31,53 +31,54 @@ E.HG.025,0,21,5,Service Center
 E.HG.101,1,12,6,
 E.HG.102,1,12,6,
 E.HG.103,1,12,6,
-E.HG.104,1,4,7,
+E.HG.104,1,4,7,"Mag. Georg PEHM; Anita BERNHARDT; Mirjam REITER; Mag. Eszter TOTH"
 E.HG.105,1,4,7,
 E.HG.106,1,4,7,
-E.HG.108,1,4,11,
-E.HG.109,1,4,13,
-E.HG.110,1,4,13,
-E.HG.111,1,4,15,Office Wirtschaft
-E.HG.114,1,3,20,Office Wirtschaft
+E.HG.108,1,4,11,"Claudia FRÖHLICH; Mag.(FH) Petra KIRADI; Michaela SCHRAUF"
+E.HG.109,1,4,13,"Mag. Claudia GUTMANN; Mag. Martina LANDL"
+E.HG.110,1,4,13,"Mag. Andrea TRINK, MA; Heater DAWSON-KISS, BA"
+E.HG.111,1,4,15,"Office Wirtschaft; Ing. Andrea KLEWEISZ; Gabriele KÖNIG"
+E.HG.113,1,3,20,"Dr. Alexander BURKA, MA; Prof.(FH) Regina ROWLAND, BA, MGD, PhD"
+E.HG.114,1,3,20,"Office Wirtschaft; Claudia KITTELMANN, Pamela BUCHINGER, Claudia ROZSENICH-ZONCSICH"
 E.HG.115,1,2,22,
-E.HG.117,1,4,26,
-E.HG.118,1,4,27,
+E.HG.117,1,4,26,"Mag.a Lenka KOVARIK; Mag. Dr. Markus GLATZ-SCHMALLEGER"
+E.HG.118,1,4,27,Univ.Prof.in Dr.in Irena ZAVRL, PhD
 E.HG.119,1,4,28,
 E.HG.123,1,11,23,
-E.HG.124,1,11,25,
-E.HG.125,1,11,26,
-E.HG.126,1,11,27,
-E.HG.127,1,11,28,
-E.HG.128,1,11,29,
-E.HG.129,1,11,29,
-E.HG.130,1,11,28,
-E.HG.131,1,11,27,
-E.HG.132,1,11,26,
+E.HG.124,1,11,25,Mag. Dr. Tonka SEMMLER-MATOSIC
+E.HG.125,1,11,26,Mag.(FH) Johann PRAITH
+E.HG.126,1,11,27,"Prof.(FH) Mag.(FH) Claudia KUMMER, MSC"
+E.HG.127,1,11,28,Mag.(FH) Bettina KÖNIG
+E.HG.128,1,11,29,"Mag. Anches HOLZWEBER, MA; Anne KALASCHEK, BSC(HONS) MBA"
+E.HG.129,1,11,29,"Mag. Dr. Amelie CSERER; Claudia FRANK-PIRGER, BA MA"
+E.HG.130,1,11,28,Prof.(FH) Mag.Dr. Petra HAUPTFELD-GÖLLNER
+E.HG.131,1,11,27,Marcus WIESCHHOFF
+E.HG.132,1,11,26,FH-Prof. DI Dr. Karl ZEHETNER
 E.HG.133,1,11,25,
-E.HG.134,1,11,23,
+E.HG.134,1,11,23,Prof.(FH) Dr. Anatoli BERDITCHEVSKI
 E.HG.135,1,11,22,
 E.HG.136,1,11,21,
-E.HG.137,1,11,19,Office IT
-E.HG.138,1,11,18,
+E.HG.137,1,11,19,"Office IT; Prof.(FH) Mag. Martina JELINEK"
+E.HG.138,1,11,18,Prof.(FH) Mag. Dr. Dr. Sebastian ESCHENBACH
 E.HG.139,1,8,20,
-E.HG.140,1,4,16,
-E.HG.141,1,4,15,
-E.HG.142,1,4,13,
-E.HG.143,1,4,11,
-E.HG.145,1,21,14,
+E.HG.140,1,4,16,"Sandra ALONSO, BA MA; Natascha HEDL"
+E.HG.141,1,4,15,"Marlene ANGER, BA; Mag. Christiane STAAB"
+E.HG.142,1,4,13,"Christina HOFSTÄDTER; Viktoria PAISZLER"
+E.HG.143,1,4,11,"Anita BERNEGGER; FRANZISKA KRÖSS, BA MA; Sybille KOGLER, MA; Waltraud SCHÖLL"
+E.HG.145,1,21,14,"Prof.(FH) DI Dr. Gernot HANREICH; Dr. Maximilian KOBLER; Andreas KOLLER, Bsc. Msc.; Elisabeth STIGLITZ MBA"
 E.HG.146,1,21,16,
-E.HG.147,1,19,19,
-E.HG.148,1,21,24,
-E.HG.149,1,21,26,
+E.HG.147,1,19,19,Prof. (FH) Mag. Doris RIEDL
+E.HG.148,1,21,24,"Sabine HOFFMANN; Birgit OPITZ"
+E.HG.149,1,21,26,Prof. (FH) Dr. Markus TAUBER
 E.HG.150,1,21,27,
-E.HG.151,1,21,28,
-E.HG.152,1,21,29,
-E.HG.153,1,21,28,
-E.HG.155,1,21,26,
-E.HG.156,1,21,24,
-E.HG.157,1,22,20,
-E.HG.158,1,21,16,
-E.HG.159,1,21,13,IT Service Center
+E.HG.151,1,21,28,Mag. (FH) Barbara GEYER-HAYDEN
+E.HG.152,1,21,29,Mag. Silke PALKOVITS-RAUTER
+E.HG.153,1,21,28,"Mag. Robert PINZOLITS; DI Wolfram RINKE; Mag. Dr. Michael ROITHER; Marie DEISSL-O`MEARA, BA"
+E.HG.155,1,21,26,Prof. (FH) DI Dr. Michael ZEILLER
+E.HG.156,1,21,24,"Bernadette GAJDUSEK; Martina LEOPOLD"
+E.HG.157,1,22,20,DI Dr. Christian BÜLL
+E.HG.158,1,21,16,"Karin CSMARITS; Franz HAUSER; Günther SLAWITZ; Ing. Richard WINKLER"
+E.HG.159,1,21,13,"IT Service Center; Elisabeth BOUVIER-AZULA; Michael FRANKOLIN; Thomas FÜHRER; Johannes WEIN"
 E.HG.162,1,22,5,
 E.HG.163,1,21,5,
 E.HG.164,1,21,6,
@@ -91,9 +92,9 @@ E.HG.207,2,4,28,
 E.HG.208,2,4,15,
 E.HG.209,2,4,13,
 E.HG.210,2,4,11,
-E.HG.214,2,11,24,
-E.HG.215,2,11,25,
-E.HG.216,2,11,29,
+E.HG.214,2,11,24,Fokusgruppenlabor
+E.HG.215,2,11,25,Laborküche
+E.HG.216,2,11,29,Sensoriklabor
 E.HG.217a,2,11,29,
 E.HG.217b,2,11,25,
 E.HG.218,2,11,21,
@@ -101,17 +102,17 @@ E.HG.219,2,11,19,
 E.HG.220,2,11,15,
 E.HG.221,2,11,11,
 E.HG.222,2,21,13,
-E.HG.223,2,21,14,
-E.HG.224,2,21,16,
-E.HG.225,2,21,17,
-E.HG.226,2,21,19,
-E.HG.227,2,21,20,
+E.HG.223,2,21,14,Prof.(FH)Mag.Dr. Manuela BRANDSTETTER
+E.HG.224,2,21,16,Mag.(FH) Manfred TAUCHNER
+E.HG.225,2,21,17,"Mag.a(FH) Sabrina LUIMPÖCK BA; Marlies WALLNER, BA MA"
+E.HG.226,2,21,19,Prof.(FH)Mag.(FH)Dr. Roland FÜRST
+E.HG.227,2,21,20,"Judith MANTL; Andrea PIRECKI, BA"
 E.HG.228,2,21,26,
 E.HG.229,2,21,29,
-E.HG.230,2,21,29,
-E.HG.231,2,21,26,
+E.HG.230,2,21,29,"Mag. Christian PFEIFFER; Mag. Marion RABELHOFER; DI DI Gernot STEINDL"
+E.HG.231,2,21,26,"DI Ani BICAKU, Bsc; DI Silia MAKSUTI, Bsc"
 E.HG.232,2,21,24,
-E.HG.233,2,21,23,
+E.HG.233,2,21,23,Prof.(FH) Mag. Dr. Silvia ETTL-HUBER
 E.HG.234,2,21,21,
 E.HG.235,2,21,19,
 E.HG.236,2,21,13,
