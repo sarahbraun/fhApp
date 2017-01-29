@@ -6,4 +6,32 @@
     </description>
     <content src="index.html" />
     <access origin="*" />
+    <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
+    <preference name="android-minSdkVersion"      value="14" />
+       <platform name="android">
+        <icon   src="img/drawable-ldpi-icon.png"               density="ldpi" />
+        <icon   src="img/drawable-mdpi-icon.png"               density="mdpi" />
+        <icon   src="img/drawable-hdpi-icon.png"               density="hdpi" />
+        <icon   src="img/drawable-xhdpi-icon.png"              density="xhdpi" />
+        <icon   src="img/drawable-xxhdpi-icon.png"             density="xxhdpi" />
+        <icon   src="img/drawable-xxxhdpi-icon.png"            density="xxxhdpi" />
+        <splash src="img/drawable-land-ldpi-screen.png"      density="land-ldpi" />
+        <splash src="img/drawable-land-mdpi-screen.png"      density="land-mdpi" />
+        <splash src="img/drawable-land-hdpi-screen.png"      density="land-hdpi" />
+        <splash src="img/drawable-land-xhdpi-screen.png"     density="land-xhdpi" />
+        <splash src="img/drawable-land-xxhdpi-screen.png"    density="land-xxhdpi" />
+        <splash src="img/drawable-land-xxxhdpi-screen.png"   density="land-xxxhdpi" />
+        <splash src="img/drawable-port-ldpi-screen.png"      density="port-ldpi" />
+        <splash src="img/drawable-port-mdpi-screen.png"      density="port-mdpi" />
+        <splash src="img/drawable-port-hdpi-screen.png"      density="port-hdpi" />
+        <splash src="img/drawable-port-xhdpi-screen.png"     density="port-xhdpi" />
+        <splash src="img/drawable-port-xxhdpi-screen.png"    density="port-xxhdpi" />
+        <splash src="img/drawable-port-xxxhdpi-screen.png"   density="port-xxxhdpi" />
+    </platform>
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
 </widget>
