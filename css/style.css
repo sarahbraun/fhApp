@@ -31,3 +31,5 @@
 #raumliste li a {padding:5px;border-bottom:1px solid #ddd;display:block;}
 
 .mark, mark {background-color:#337ab7;}
+
+#mensa-feed ul {list-style: outside none none;padding: 0;margin-bottom:30px;}

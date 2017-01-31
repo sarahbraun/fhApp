@@ -37,7 +37,6 @@
             </div>
             <div class="content">
                 <h3>Mensamenü</h3>
-                <h4 id="mensa-headline"></h4>
                 <!-- In das nachstehende Div werden die RSS Beiträge per Javascript eingefügt -->
                 <div id="mensa-feed"></div>
             </div>
@@ -51,26 +50,43 @@
         <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-        <script type="text/javascript">
-            google.load("feeds", "1");
-            function initialize() {
-                var feed = new google.feeds.Feed("https://rss.imensa.de/eisenstadt/mensa-eisenstadt/speiseplan.rss");
-                var container = document.getElementById("mensa-feed");
-                var headline = document.getElementById("mensa-headline");
-                feed.load(function(result) {
-                    if (!result.error) {
-                        for (var i = 0; i < result.feed.entries.length; i++) {
-                            var entry = result.feed.entries[i];
-                            headline.appendChild(document.createTextNode(entry.title));
-                            container.innerHTML = entry.content;
-                        }
-                    } else {
-                        container.appendChild("Zur Zeit ist kein Speiseplan verfügbar.");
-                    }
-                });
-            }
-            google.setOnLoadCallback(initialize);
-        </script>
+    	<script src="js/jquery.rss.js"></script>
+		<script>
+		  jQuery(function($) {
+			$("#mensa-feed").rss(
+				"https://rss.imensa.de/eisenstadt/mensa-eisenstadt/speiseplan.rss",
+			  {
+				// how many entries do you want?
+				// default: 4
+				// valid values: any integer
+				limit: 10,
+
+				// want to offset results being displayed?
+				// default: false
+				// valid values: any integer
+				offsetStart: false, // offset start point
+				offsetEnd: false, // offset end point
+
+				// will request the API via https
+				// default: false
+				// valid values: false, true
+				ssl: false,
+
+				// outer template for the html transformation
+				// default: "<ul>{entries}</ul>"
+				// valid values: any string
+				layoutTemplate: "{entries}",
+
+				// inner template for each entry
+				// default: '<li><a href="{url}">[{author}@{date}] {title}</a><br/>{shortBodyPlain}</li>'
+				// valid values: any string
+				entryTemplate: '<p>{title}</p>{body}',
+
+
+				
+			  }
+			)
+		  })
+		</script>
     </body>
 </html>
