@@ -8,8 +8,10 @@
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
         <style>
-            .panzoom-parent {height:450px;margin-top:10px;}
-            .buttons span {cursor:pointer;}
+            body {overflow:hidden;}
+            .panzoom-parent {height:439px;margin-top:10px;background-color:cornflowerblue;overflow-x: scroll;}
+			.panzoom {height: 100%;}
+			.legende {font-size:0.8em;}
         </style>
     </head>
     <body>
@@ -41,12 +43,12 @@
             </div>
             <div class="content wide" id="panzoom">
                 <h3>Rund um die FH</h3>
-                <div class="buttons">
-                    <span class="glyphicon glyphicon-zoom-in zoom-in" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-zoom-out zoom-out" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-repeat reset" aria-hidden="true"></span>
+                <div class="legende">
+                    <span style="color:green;">&#9711;&nbsp;5&nbsp;Min.&nbsp;zu&nbsp;Fuß</span>&nbsp;&nbsp;
+                    <span style="color:coral;">&#9711;&nbsp;3-5&nbsp;Min.&nbsp;mit&nbsp;dem&nbsp;Auto</span>&nbsp;&nbsp;
+                    <span style="color:cornflowerblue;">&#9711;&nbsp;5-10&nbsp;Min.&nbsp;mit&nbsp;dem&nbsp;Auto</span>
                 </div>
-                <div class="panzoom-parent"><img class="panzoom" src="img/karte.jpg" width="826" height="528"></div>
+                <div class="panzoom-parent"><img class="panzoom" src="img/karte.jpg"></div>
                 <footer class="footer navbar-default">
                     <a href="indoornavi.html"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span><br>Indoornavigation</a>
                     <a href="rund-um-die-fh.html" class="active"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><br>Rund um die FH</a>
@@ -57,22 +59,13 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/jquery.panzoom.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
-        <script>
-            (function() {
-                var $section = $('#panzoom');
-                $section.find('.panzoom').panzoom({
-                $zoomIn: $section.find(".zoom-in"),
-                $zoomOut: $section.find(".zoom-out"),
-                $zoomRange: $section.find(".zoom-range"),
-                $reset: $section.find(".reset"),
-                startTransform: 'scale(1.1)',
-                increment: 0.1,
-                minScale: 0.5,
-                contain: 'automatic'
-              }).panzoom('zoom');
-            })();
-        </script>
+        <script type="text/javascript">
+			$(document).ready(function(){
+				var outerContent = $('.panzoom-parent');
+				var innerContent = $('.panzoom');
+				outerContent.scrollLeft((innerContent.width() - outerContent.width()) / 2);
+			});
+		</script>
     </body>
 </html>
