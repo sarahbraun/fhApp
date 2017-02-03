@@ -2,7 +2,7 @@
 <widget id="com.fhapp.setup" version="1.6" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>FH Burgenland App</name>
     <description>
-        Die App, die Besonderes zusammen bringt.
+        Die App, die Besonderes zusammen bringt. Die FH Burgenland App unterstützt StudentInnen und LektorInnen im FH-Alltag mit vielen praktischen Funktionen: Indoor Navigation, Umgebungskarte der FH mit nützlicher Infrastruktur, aktueller Mensaplan und vieles mehr.
     </description>
     <content src="index.html" />
     <access origin="*" />
