@@ -12,7 +12,7 @@
         <div class="wrapper" id="mensa">
             <nav class="navbar navbar-default">
                 <a href="#" id="show-navigation"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
-                <a href="index.html"><img src="img/FH_Burgenland_Logo.jpg" alt="FH Burgenland Logo" class="logo"></a>
+                <a href="dashboard.html"><img src="img/fh-logo_weiss.svg" alt="FH Burgenland Logo" class="logo"></a>
             </nav>
             <div id="navigation">
                 <div class="header">
@@ -27,7 +27,7 @@
                 <h5>ÖH</h5>
                 <div class="list-group">
                     <a href="oeh.html" class="list-group-item">Info</a>
-                    <a href="oeh-vorsitz.html" class="list-group-item">Ansprechpersonen</a>
+                    <a href="ansprechpersonen.html" class="list-group-item">Ansprechpersonen</a>
                 </div>
                 <h5>FH App</h5>
                 <div class="list-group">
@@ -36,10 +36,19 @@
                 </div>
             </div>
             <div class="content">
-                <h3>Mensamenü</h3>
-                <!-- In das nachstehende Div werden die RSS Beiträge per Javascript eingefügt -->
-                <div id="mensa-feed"></div>
-               
+                <h3>Mensa Speiseplan</h3>
+                <!-- In das nachstehende Div werden die RSS Beiträge per Javascript eingefügt
+                <div id="mensa-feed"></div> -->
+             <div id="mensa-feed"><p>Speiseplan für Samstag, 4. Februar 2017</p><div><h1 style="color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold;">Menü Classic 1</h1>
+            <ul>
+               <li style="color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;">Champignoncremesuppe, Mediterrane Nudelpfanne dazu Blattsalat (4,90&nbsp;€)</li>
+            </ul>
+            <h1 style="color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; font-weight: bold;">Menü Classic 2</h1>
+            <ul>
+               <li style="color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;">Champignoncremesuppe, Züricher geschnetzeltes vom Huhn mit Hörnchen und Salat v. Buffet (5,60&nbsp;€)</li>
+            </ul>
+            <p style="color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;">Preise für Studierende. Alle Angaben ohne Gewähr, es gilt die Auszeichnung vor Ort.<br>
+            </p></div></div>
             </div>
             <footer class="footer navbar-default">
                 <a href="indoornavi.html"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span><br>Indoornavigation</a>
@@ -51,7 +60,7 @@
         <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript">
+        <!--<script type="text/javascript">
             function getRSSFeed(feed){
                 // Build the YQL query
                 var qryRSS = 'select * from feed where url='+'"'+feed+'"';
@@ -72,6 +81,6 @@
                 });
             };
             getRSSFeed('http://rss.imensa.de/eisenstadt/mensa-eisenstadt/speiseplan.rss');
-        </script>
+        </script> -->
     </body>
 </html>

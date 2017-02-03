@@ -7,27 +7,18 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
+        <style>
+            html, body {height:100%;padding:0;margin:0;background:#125076;}
+        </style>
     </head>
     <body>
-        <div class="wrapper" id="start">
-           <br><br>
-            <img src="img/FH_Burgenland_Logo.jpg" alt="FH Burgenland Logo" class="logo">
-            <div class="content">
-                <!--<h3>Login</h3><br>
-                <input type="email" class="form-control" id="beispielFeldEmail1" placeholder="Anmeldename/PKZ"><br>
-                <input type="password" class="form-control" id="beispielFeldPasswort1" placeholder="Passwort"><br>
-                <span type="button" class="btn btn-lg btn-success">CIS Login</span>
-                <br><br>
-                <a href="dashboard.html" type="button" class="btn btn-lg btn-default">Ohne Login fortfahren</a>-->
-                <br><br><br>
-                <a href="indoornavi.html" type="button" class="btn btn-lg btn-success">Indoornavigation</a>
-                <br><br>
-                <a href="rund-um-die-fh.html" type="button" class="btn btn-lg btn-default">Rund um die FH</a><br><br>
-                <a href="mensa.html" type="button" class="btn btn-lg btn-default">Mensa-Speiseplan</a>
-            </div>
-        </div>
+        <a href="dashboard.html" id="intro"><span><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span><br><br>Die App, die Besonderes zusammen bringt.</span></a>
         <script type="text/javascript" src="cordova.js"></script>
-		<script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/jquery-3.1.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script>
+            //Automatisch nach 3 Sekunden ins Dashboard weiterleiten.
+            setTimeout(function(){ window.location = "dashboard.html"; }, 3000);
+        </script>
     </body>
 </html>

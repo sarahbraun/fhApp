@@ -1,15 +1,25 @@
-.wrapper {text-align:center;padding:50px 0;background-color:#ffffff;overflow:hidden;}
+#intro {display:block;height:100%;width:100%;background:#125076 url(../img/fhapp-logo_weiss.svg) no-repeat 50% 30% / 60% auto;color:#fff;text-align:center;text-decoration:none;position:relative;}
+#intro > span {width:60%;position:absolute;top:70%;left:50%;transform:translate(-50%,-50%);font-size:1.2em;}
+
+.glyphicon-refresh-animate {animation: spin .7s infinite linear;}
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+.wrapper {text-align:center;padding:42px 0;background-color:#ffffff;overflow:hidden;}
 
 .navbar {min-height:40px;font-size:1.5em;line-height:1em;text-align:left;padding:5px;position:fixed;top:0;width:100%;z-index:100;margin:0;}
-.navbar .glyphicon {padding:5px;}
-.navbar .logo {width:55px;float:right;margin:0 5px;}
+.navbar.navbar-default {background-color:#125076;border-radius:0px;;background-image:none;border:0;} 
+.navbar .glyphicon {padding:5px;color:#fff;}
+.navbar .logo {width:60px;float:right;margin:0 7px 0 0;}
 
-.footer {position:fixed;bottom:0;width:100%;font-size:0.6em;line-height:1em;text-align:left;padding:0;-webkit-box-shadow:0 -1px 0 rgba(255, 255, 255, 0.15) inset, 0 -1px 5px rgba(0, 0, 0, 0.075);-moz-box-shadow:0 -1px 0 rgba(255, 255, 255, 0.15) inset, 0 -1px 5px rgba(0, 0, 0, 0.075);box-shadow:0 -1px 0 rgba(255, 255, 255, 0.15) inset, 0 -1px 5px rgba(0, 0, 0, 0.075);z-index:100;}
+.footer {position:fixed;bottom:0;width:100%;font-size:0.6em;line-height:1em;text-align:left;padding:0;box-shadow:0 -1px 0 rgba(255, 255, 255, 0.15) inset, 0 -1px 5px rgba(0, 0, 0, 0.075);z-index:100;}
 .footer a {display:block;float:left;text-align:center;width:33.33%;text-decoration:none;padding:5px 0;}
 .footer a .glyphicon {padding:0 0 5px;font-size:1.8em;}
 .footer a.active {background-color:#337ab7;color:#fff;}
 
-.content {width:70%;margin:0 auto;color:#666;}
+.content {width:80%;margin:0 auto;color:#666;}
 .content.wide {width:100%;}
 .content .btn {width:100%;}
 
@@ -19,7 +29,7 @@
 
 #dashboard {color:#666}
 
-#navigation {text-align:left;background-color:#007c57;color:#fff;z-index:101;width:100%;height:100%;top:0;position:fixed;overflow-y:scroll;left:-100%;transition: all 0.3s ease 0s;padding:10px;}
+#navigation {text-align:left;background-color:#007c57;color:#fff;z-index:101;width:100%;height:100%;top:0;position:fixed;overflow-y:scroll;left:-100%;transition:all 0.3s ease 0s;padding:10px;}
 #navigation.open {left:0;}
 #navigation .back {color:#fff;font-size:1.5em;line-height:1em;}
 
@@ -32,4 +42,4 @@
 
 .mark, mark {background-color:#337ab7;}
 
-#mensa-feed ul {list-style: outside none none;padding: 0;margin-bottom:30px;}
+#mensa-feed ul {list-style:outside none none;padding:0;margin-bottom:30px;}

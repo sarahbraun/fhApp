@@ -15,7 +15,7 @@ function searchEndpoint() {
     var res = $.urlParam('room').split(",");
     initPath(res[0],res[1],res[2]);
 }
-// Die Stockwerke wurden bereits in der index.html eingebunden
+// Die Stockwerke wurden bereits eingebunden
 var eg0Map = document.getElementById('eg0Map');
 var og1Map = document.getElementById('og1Map');
 var og2Map = document.getElementById('og2Map');
