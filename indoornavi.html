@@ -78,7 +78,7 @@
                     caption3 = "",
                     caption4 = "";
                 for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
-                    var rowCells = allRows[singleRow].split(',');
+                    var rowCells = allRows[singleRow].split(';');
                     if(rowCells[1] == "0" && caption1 == "") {
                         table += '<li class="list-caption">Erdgeschoß</li>';
                         caption1 = 'full';
@@ -101,7 +101,7 @@
                     table += '">';
                     table += rowCells[0];
                     if(rowCells[4] != "") {
-                        table += ' ';
+                        table += ' – ';
                         table += rowCells[4];
                     }
                     table += '</a></li>';
