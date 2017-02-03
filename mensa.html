@@ -39,6 +39,7 @@
                 <h3>Mensamenü</h3>
                 <!-- In das nachstehende Div werden die RSS Beiträge per Javascript eingefügt -->
                 <div id="mensa-feed"></div>
+               
             </div>
             <footer class="footer navbar-default">
                 <a href="indoornavi.html"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span><br>Indoornavigation</a>
@@ -54,7 +55,7 @@
 		<script>
 		  jQuery(function($) {
 			$("#mensa-feed").rss(
-				"https://rss.imensa.de/eisenstadt/mensa-eisenstadt/speiseplan.rss",
+				"http://rss.imensa.de/eisenstadt/mensa-eisenstadt/speiseplan.rss",
 			  {
 				// how many entries do you want?
 				// default: 4
