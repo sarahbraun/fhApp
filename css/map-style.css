@@ -7,7 +7,7 @@
 .map img {max-height:100%;display:block;width:auto;display:relative;z-index:1;}
 .map .grid {position:absolute;left:0;top:0;width:100%;height:auto;z-index:10;opacity:0.5;}
 
-.map .waypoint:after {content:"";display:block;position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);width:50%;height:50%;border-radius:50%;}
+.map .waypoint:after {content:"";display:block;position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);transform:translate(-50%, -50%);width:50%;height:50%;border-radius:50%;}
 
 .map .waypoint.path:after {background-color:#1398E4;}
 .map .waypoint.start:after {background-color:orange;} /*Startpunkt*/
@@ -16,5 +16,5 @@
 .grid-box {width:3.33333%;position:absolute;background-color:transparent;z-index:100;}
 .grid-box:before {content:"";display:block;padding-top:100%;}
 
-#lift {display:none;width:190px;background-color:rgba(150,181,34,0.9);color:white;padding:5px;font-size:1.2em;z-index:100;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);cursor:pointer;text-align:left;}
+#lift {display:none;width:190px;background-color:rgba(150,181,34,0.9);color:white;padding:5px;font-size:1.2em;z-index:100;position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);-moz-transform:translate(-50%,-50%);transform:translate(-50%, -50%);cursor:pointer;text-align:left;}
 #lift .glyphicon {float:left;font-size:2.7em;padding-right:5px;}
